@@ -33,24 +33,58 @@ public class Solution29 {
      */
     /*
      * JUnit 5
-     *
-     *
+     * test checkDig
+     * hardcode string and size and check if it returns expected
+     * test getInvestment
+     * hardcode rate and check ans = expected
      */
     // constant scanner
     private static final Scanner input = new Scanner(System.in);
 
     // input
     private String inputMethod(){
+        System.out.println("What is the rate of return? ");
+        return input.next();
     }
 
     public boolean checkDig(String myrate, int size){
+
+        for(int i = 0; i < size; i++) {
+            if(myrate.charAt(i) >= '0' && myrate.charAt(i) <= '9') {
+                return true;
+            }else {
+                return false;
+            }
+        }
+        return false;
     }
 
     // calc investment
     public int getInvestment(int rate){
+        return 72/rate;
     }
 
     // main
     public static void main(String[] args) {
+        Solution29 sol = new Solution29();
+
+        String myrate;
+
+        while(true){
+            myrate = sol.inputMethod();
+            int len = myrate.length();
+            if(sol.checkDig(myrate, len)){
+                int rate = Integer.parseInt(myrate);
+                if(rate >= 1 && rate <= 72){
+                    int investment = sol.getInvestment(rate);
+                    System.out.printf("It will take %d years to double your initial investment. ", investment);
+                    break;
+                } else{
+                    System.out.println("Sorry. That's not a valid input. ");
+                }
+            }else{
+                System.out.println("Sorry. That's not a valid input. ");
+            }
+        }
     }
 }
