@@ -19,12 +19,21 @@ public class Solution30 {
      * JUnit 5
      * nothing to test? just printing a table
      */
-    // multiplication table method
+// multiplication table method
     public void multTable(){
+        int i, j;
+        for(i = 1; i <= 12; i++){
+            for(j = 1; j <= 12; j++){
+                System.out.format("%4d",i * j);
+            }
+            System.out.println();
+        }
     }
 
     // main
     public static void main(String[] args) {
+        Solution30 sol = new Solution30();
 
+        sol.multTable();
     }
 }
