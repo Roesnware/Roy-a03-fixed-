@@ -32,10 +32,27 @@ public class Solution35 {
 
     // input
     private String inputMethod(){
+        System.out.println("Enter a name: ");
+        return input.next();
     }
 
     // main
     public static void main(String[] args) {
+        Solution35 sol = new Solution35();
 
+        String name;
+
+        ArrayList<String> names = new ArrayList<>();
+        Random rand = new Random();
+
+        do {
+            name = sol.inputMethod();
+            names.add(name);
+        }while(!name.isEmpty());
+
+        names.remove(names.size() - 1);
+
+        String winner = names.get(rand.nextInt(names.size()));
+        System.out.printf("The winner is... %s", winner);
     }
 }
