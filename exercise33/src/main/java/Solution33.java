@@ -28,12 +28,23 @@ public class Solution33 {
 
     // input
     private String inputMethod(){
-
+        System.out.println("What's your question? ");
+        return input.next();
     }
 
     // main
     public static void main(String[] args) {
+        Solution33 sol = new Solution33();
+        Random rand = new Random();
 
+        String[] output = {"Yes", "No", "Maybe", "Ask again later"};
+
+        String question = sol.inputMethod();
+
+        int index = rand.nextInt(output.length);
+
+        String response = output[index];
+        System.out.println();
+        System.out.println(response);
     }
 }
-
