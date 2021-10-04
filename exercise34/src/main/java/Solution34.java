@@ -29,13 +29,30 @@ public class Solution34 {
 
     // input
     private String inputMethod(){
+        System.out.println("Enter an employee name to remove: ");
+        return input.next();
     }
 
     // print output
     public void outputMethod(ArrayList<String> employees) {
+        System.out.println("There are "+employees.size()+" employees: ");
+        for(String emp:employees) {
+            System.out.println(emp);
+        }
     }
-    
     // main
     public static void main(String[] args) {
+        Solution34 sol = new Solution34();
+
+        ArrayList<String> employees = new ArrayList<>(Arrays.asList("Clark Kent", "Peter Parker", "Bruce Banner", "Tony Stark", "Bruce Wayne", "Carol Denvers", "Billy Batson"));
+        sol.outputMethod(employees);
+
+        System.out.println();
+        String employee = sol.inputMethod();
+
+        employees.remove(employee);
+
+        System.out.println();
+        sol.outputMethod(employees);
     }
 }
