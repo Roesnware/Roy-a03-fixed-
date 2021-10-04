@@ -6,6 +6,8 @@ class Solution31Test {
 
     @Test
     void checkDigitsTest() {
-
+        Solution31 sol = new Solution31();
+        String str = "65";
+        assertTrue(sol.checkDigits(str));
     }
 }

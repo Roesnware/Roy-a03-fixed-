@@ -40,18 +40,62 @@ public class Solution31 {
 
     // input
     private String inputMethod(String prompt){
+        System.out.println(prompt);
+        return input.next();
     }
 
     // check if digits
     public boolean checkDigits(String str) {
+
+        try {
+            Integer.parseInt(str);
+        }catch(Exception e) {
+            return false;
+        }
+        return true;
     }
 
     // calc intensity and rate
     public void getIntRate(int age, int pulse){
+
+        int i;
+
+        for(i = 55 ; i <= 95 ; i += 5) {
+            int rate = ((220 - age - pulse) * i/100) + pulse;
+            System.out.printf("%d\t\t\t%d bpm\n", i, rate);
+        }
     }
 
     // main
     public static void main(String[] args) {
+        Solution31 sol = new Solution31();
+
+        int restingPulse, currAge;
+
+        while(true) {
+
+            String pulse = sol.inputMethod("Enter Resting Pulse: ");
+
+            if(sol.checkDigits(pulse)) {
+                restingPulse = Integer.parseInt(pulse);
+                break;
+            }else {
+                System.out.println("Invalid Pulse");
+            }
+        }
+
+        while(true) {
+
+            String age = sol.inputMethod("Enter Age: ");
+
+            if(sol.checkDigits(age)) {
+                currAge = Integer.parseInt(age);
+                break;
+            }else {
+                System.out.println("Invalid Age");
+            }
+        }
+        System.out.println("Intensity\tRate");
+        sol.getIntRate(currAge, restingPulse);
     }
 }
-
